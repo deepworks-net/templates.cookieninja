@@ -1,0 +1,17 @@
+{
+    "full_name": "Deepworks",
+    "email": "support@deepworks.net",
+    "github_username": "deepworks-net",
+    "project_name": "Docker Base",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+    "project_short_description": "Deepworks docker boilerplate code structure.",
+    "version": "0.1.0",
+    "image_home_dir": "/.deepworks/",
+    "Image_init_command": "/sbin/init",
+    "image_name": "deepworks/example-cookie",
+    "image_version": "0.0.1",
+    "base_image_name": "alpine",
+    "base_image_version": "3.15.0",
+    "service_name": "latest",
+    "open_source_license": ["MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3", "Not open source"]
+  }
