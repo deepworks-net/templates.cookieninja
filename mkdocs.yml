@@ -1,10 +1,10 @@
-site_name: Deepworks Framework Cookiecutter Docker Project Template
-site_description: This cookiecutter template serves to create the boilerplate code for a new project that will utilize docker containers.
+site_name: DeepWork Cookiecutter Project Template
+site_description: This cookiecutter template serves to create the boilerplate code for a new DeepWork project.
 site_author: Deepworks
 copyright: Deepworks 2023
-repo_url: https://github.com/deepworks-net/dwfw-pt-docker-base
+repo_url: https://github.com/deepworks-net/dw-project-template
 extra:
-    version: 0.1.0
+    version: 0.2.0
 plugins:
   - search
 markdown_extensions:
@@ -16,6 +16,8 @@ markdown_extensions:
       custom_checkbox: true
 theme:
     name: material
+    icon:
+      logo: simple/cookiecutter
     features:
         - navigation.instant
         - navigation.tracking
@@ -34,16 +36,14 @@ theme:
       # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: blue 
-      accent: blue
+      primary: black
       toggle:
         icon: material/brightness-7 
         name: Switch to dark mode
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: blue 
-      accent: blue
+      primary: black
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
