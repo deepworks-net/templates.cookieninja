@@ -1,4 +1,4 @@
-name: Create Github Release
+{% raw %}name: Create Github Release
 on:
   push:
     tags:
@@ -13,4 +13,4 @@ jobs:
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
         title: "${{ env.GITHUB_REF_NAME }}"
-        prerelease: false
+        prerelease: false{% endraw %}
