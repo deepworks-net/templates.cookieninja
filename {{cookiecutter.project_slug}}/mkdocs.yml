@@ -1,7 +1,7 @@
 site_name: {{ cookiecutter.project_name }}
 site_description: {{ cookiecutter.project_short_description }}
 site_author: {{ cookiecutter.full_name }}
-copyright: {{ cookiecutter.full_name }} {{ now 'utc', '%Y' }}
+copyright: {{ cookiecutter.full_name }} {% now 'utc', '%Y' %}
 repo_url: https://github.com/{{ cookiecutter.project_slug }}
 extra:
     version: 0.1.0
@@ -34,16 +34,14 @@ theme:
       # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: blue 
-      accent: blue
+      primary: black 
       toggle:
         icon: material/brightness-7 
         name: Switch to dark mode
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: blue 
-      accent: blue
+      primary: black 
       toggle:
         icon: material/brightness-4
         name: Switch to light mode

@@ -1,0 +1,3 @@
+[submodule "cnsrc"]
+	path = cnsrc
+	url = https://github.com/deepworks-net/cookieninja.git

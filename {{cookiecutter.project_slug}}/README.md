@@ -1,11 +1,12 @@
-# {{cookiecutter.project_name}} Image 
-[![Stage](https://img.shields.io/badge/stage-alpha-orange)](#) [![Docker Image Version (latest semver)](https://img.shields.io/docker/v/{{ cookiecutter.image_name }}/latest)](https://hub.docker.com/r/{{ cookiecutter.image_name }}) ![Maintained](https://img.shields.io/badge/maintained-yes-brightgreen.svg)
+# {{cookiecutter.project_name}}
+[![Stage](https://img.shields.io/badge/stage-alpha-orange)](#) {% if cookiecutter.has_docker == true -%}[![Docker Image Version (latest semver)](https://img.shields.io/docker/v/{{ cookiecutter.image_name }}/latest)](https://hub.docker.com/r/{{ cookiecutter.image_name }}) {% endif %}![Maintained](https://img.shields.io/badge/maintained-yes-brightgreen.svg)
 
 ## Overview
-TODO: Please enter your overview of the image here.
+TODO: Please enter your overview of the project here.
 
+{% if cookiecutter.has_docker == true -%}
 ## Base Image
-TODO: Please enter information about the base image here.
+TODO: Please enter information about the image here.
 
 ## Information 
 [![Tags](https://img.shields.io/badge/{{ cookiecutter.image_name }}-%20latest%20|%20{{ cookiecutter.image_version }}%20-blue.svg)](https://hub.docker.com/r/{{ cookiecutter.image_name }}/latest) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/{{ cookiecutter.image_name }}/latest) [![Built](https://img.shields.io/badge/Built-03/15/2022-blue.svg)](#)
@@ -27,10 +28,11 @@ docker pull {{ cookiecutter.image_name }}:latest
 
 2. Run the image with Docker:
 ```SHELL
-docker run -d {{ cookiecutter.image_name }}:latest {{ cookiecutter.Image_init_command }}
+docker run -d {{ cookiecutter.image_name }}:latest {{ cookiecutter.image_init_command }}
 ```
 
 3. Or, run it with Docker Compose:
 ```SHELL
 docker compose up -d latest
 ```
+{% endif %}

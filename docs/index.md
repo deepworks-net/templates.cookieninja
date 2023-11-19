@@ -3,15 +3,16 @@
 ## Overview
 This cookiecutter template serves to create the boilerplate code for a range of new projects that will conform to the deepworks framework. It's interactive experience allows it to be customized while ensuring consistency, best practices, and ease of use. It also cuts down on all the mundane setup tasks and lets you get going on what you really want to build, while giving you a customized code repository with all of the stuff that is less exciting all ready set up and ready to go.
 
+**NOTE:** While this is a cookiecutter template, it utilizes cookieninja for generation as it has enhanced features. Please refer to the [cookieninja docs](https://cookieninja.readthedocs.io/) as the cookiecutter documentation will not cover all the options the cookieninja fork uses.
+
 ### Requirements
 - Python >= 3.11
 - Pip >= 22.3
-- Cookiecutter >= 2.4.0 (This dependency is 'included' with the development environment)
 
 **NOTE:** This guide and project is aimed at Windows users running a development environment of Visual Code Studio with the powershell terminal. Any part can be adapted to your own development platform with minor alterations to the commands, but the steps should all remain the same.
 
 ## Development
-Developing new updates to the Cookiecutter template is a different game than simply using it to create a new project. The following will guide you through how the project is developed, built and published.
+Developing new updates to the cookiecutter template is a different game than simply using it to create a new project. The following will guide you through how the project is developed, built and published.
 
 ### Setup the environment
 To setup the development environment locally, perform the following:

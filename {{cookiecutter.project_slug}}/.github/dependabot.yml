@@ -15,8 +15,10 @@ updates:
   schedule:
     interval: daily
   open-pull-requests-limit: 10
+{% if cookiecutter.has_docker == true -%}
 - package-ecosystem: gitsubmodule
   directory: "/"
   schedule:
     interval: daily
   open-pull-requests-limit: 10
+{% endif %}
