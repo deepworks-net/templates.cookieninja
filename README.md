@@ -16,13 +16,12 @@ cd dw-project-template
 py -m pip install cnsrc/
 ```
 
-Then move out of the project directory and start cookieninja
+Then customize and create a project with cookieninja!
 ```
-cd ..
-cookieninja dw-project-template/
+cookieninja template/
 ```
 
-You will then be walked through the setup of your project!
+You will then be walked through the setup of your project. Once completed, the customized project will be created in your current working directory.
 
 
 ## Template Development
