@@ -11,7 +11,22 @@ This cookiecutter template serves to create the boilerplate code for a range of 
 
 **NOTE:** This guide and project is aimed at Windows users running a development environment of Visual Code Studio with the powershell terminal. Any part can be adapted to your own development platform with minor alterations to the commands, but the steps should all remain the same.
 
-## Development
+## Quick Start
+Make sure to pull down this repository and initialize the submodule, then install the submodule via pip from within the project directory:
+```
+cd dw-project-template
+py -m pip install cnsrc/
+```
+
+Then move out of the project directory and start cookieninja
+```
+cd ..
+cookieninja dw-project-template/
+```
+
+You will then be walked through the setup of your project!
+
+## Template Development
 Developing new updates to the cookiecutter template is a different game than simply using it to create a new project. The following will guide you through how the project is developed, built and published.
 
 ### Setup the environment
