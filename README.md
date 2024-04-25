@@ -13,7 +13,10 @@ This cookiecutter template serves to create the boilerplate code for a range of 
 Make sure to pull down this repository and initialize the submodule, then install the submodule via pip from within the project directory:
 ```
 cd dw-project-template
-py -m pip install cnsrc/
+py -m venv .venv
+& ".venv/Scripts/Activate.ps1"
+py -m pip install --upgrade pip
+py -m pip install cookiecutter cookieninja
 ```
 
 Then customize and create a project with cookieninja!
