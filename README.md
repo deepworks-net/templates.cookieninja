@@ -6,22 +6,25 @@ This cookiecutter template serves to create the boilerplate code for a range of 
 **NOTE:** While this is a cookiecutter template, it utilizes a fork of cookieninja (included in the project as a submodule) for generation as it has enhanced features and fixes. Please refer to the [cookieninja docs](https://cookieninja.readthedocs.io/) as the cookiecutter documentation will not cover all the options the cookieninja fork uses.
 
 ### Requirements
-- Python >= 3.11
-- Pip >= 22.3
+- Python >= 3.11.4
+- Pip >= 24.3.1
 
 ## Quick Start
 Make sure to pull down this repository and initialize the submodule, then install the submodule via pip from within the project directory:
 ```
-cd dw-project-template
+cd templates.cookieninja
+./setup.ps1
+
+## OR manually
 py -m venv .venv
 & ".venv/Scripts/Activate.ps1"
 py -m pip install --upgrade pip
-py -m pip install cookiecutter cookieninja
+py -m pip install -r requirements
 ```
 
 Then customize and create a project with cookieninja!
 ```
-cookieninja template/
+py -m cookieninja template/
 ```
 
 You will then be walked through the setup of your project. Once completed, the customized project will be created in your current working directory.
@@ -29,4 +32,4 @@ You will then be walked through the setup of your project. Once completed, the c
 
 ## Template Development
 
-Please see the full documentation here: [DeepWork Cookiecutter Project Template Documentation](https://deepworks-net.github.io/dw-project-template/)
+Please see the full documentation here: [DeepWork Cookiecutter Project Template Documentation](https://deepworks-net.github.io/templates.cookieninja/)
