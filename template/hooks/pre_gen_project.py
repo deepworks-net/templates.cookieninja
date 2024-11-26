@@ -1,35 +1,72 @@
 import os
 import shutil
+import sys
 
+# Define target directory relative to cookiecutter project
 target_directory = '../{{ cookiecutter._template }}{% raw %}{{cookiecutter.project_slug}}/{% endraw %}'
 
-def merge_directories(source_dir, target_dir = target_directory):
-    # Create target directory if it does not exist
-    if not os.path.exists(target_dir):
-        os.makedirs(target_dir)
+def merge_directories(source_dir, target_dir=None):
+    """
+    Recursively merge directories, copying all files and subdirectories.
+    """
+    if target_dir is None:
+        target_dir = target_directory
 
-    # Iterate over all the files in the source directory
-    for filename in os.listdir(source_dir):
-        source_file = os.path.join(source_dir, filename)
-        target_file = os.path.join(target_dir, filename)
-        # Check if it's a file and not a directory
-        if os.path.isfile(source_file):
-            # Copy the file to the target directory
-            shutil.copy2(source_file, target_file)
-            print(f"Copied {source_file} to {target_file}")
-        else:
-            merge_directories(source_file, target_file)
-            print(f"Copied Directory {source_file} to {target_file}")
+    try:
+        # Create target directory if it does not exist
+        os.makedirs(target_dir, exist_ok=True)
 
-print(f"Starting pre-generation script")
+        # Check if source directory exists
+        if not os.path.exists(source_dir):
+            print(f"Error: Source directory '{source_dir}' does not exist")
+            sys.exit(1)
 
-skel_directory = '../{{ cookiecutter._template }}skel/'
-core_directory = '{skel_directory}core_files/'
-docker_directory = '{skel_directory}docker/'
+        # Iterate over all the files in the source directory
+        for filename in os.listdir(source_dir):
+            source_file = os.path.join(source_dir, filename)
+            target_file = os.path.join(target_dir, filename)
+            
+            try:
+                if os.path.isfile(source_file):
+                    # Copy the file to the target directory
+                    shutil.copy2(source_file, target_file)
+                    print(f"Copied file: {filename}")
+                else:
+                    # Recursively copy directory
+                    merge_directories(source_file, target_file)
+                    print(f"Copied directory: {filename}")
+            except Exception as e:
+                print(f"Error copying {filename}: {str(e)}")
+                sys.exit(1)
 
-shutil.rmtree(target_directory, ignore_errors=True)
+    except Exception as e:
+        print(f"Error: {str(e)}")
+        sys.exit(1)
 
-merge_directories(core_directory)
+def main():
+    print("Starting pre-generation script...")
 
-if '{{ cookiecutter.has_docker }}' == 'True':
-    merge_directories(docker_directory)
+    # Define directories relative to cookiecutter template
+    skel_directory = os.path.abspath('../{{ cookiecutter._template }}skel')
+    core_directory = os.path.join(skel_directory, 'core_files')
+    docker_directory = os.path.join(skel_directory, 'docker')
+
+    # Clean target directory if it exists
+    if os.path.exists(target_directory):
+        try:
+            shutil.rmtree(target_directory)
+        except Exception as e:
+            print(f"Error cleaning target directory: {str(e)}")
+            sys.exit(1)
+
+    # Copy core files
+    merge_directories(core_directory)
+
+    # Copy docker files if enabled
+    if '{{ cookiecutter.has_docker }}' == 'True':
+        merge_directories(docker_directory)
+
+    print("Pre-generation script completed successfully")
+
+if __name__ == "__main__":
+    main()
