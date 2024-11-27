@@ -1,65 +1,113 @@
-# The Project
+# DeepWork Project Template
 
 ## Overview
-This cookiecutter template serves to create the boilerplate code for a range of new projects that will conform to the deepworks framework. It's interactive experience allows it to be customized while ensuring consistency, best practices, and ease of use. It also cuts down on all the mundane setup tasks and lets you get going on what you really want to build, while giving you a customized code repository with all of the stuff that is less exciting all ready set up and ready to go.
+The DeepWork Project Template is a sophisticated cookiecutter template designed to streamline the creation of projects that conform to the deepworks framework. This template automates the setup of boilerplate code while providing a customizable, interactive experience that ensures consistency and adherence to best practices.
 
-**NOTE:** While this is a cookiecutter template, it utilizes cookieninja for generation as it has enhanced features. Please refer to the [cookieninja docs](https://cookieninja.readthedocs.io/) as the cookiecutter documentation will not cover all the options the cookieninja fork uses.
+By handling routine setup tasks automatically, developers can focus on core development work while benefiting from a pre-configured repository that includes all essential infrastructure components.
 
-### Requirements
-- Python >= 3.11
-- Pip >= 22.3
+## Key Features
+- Interactive project customization
+- Automated boilerplate code generation
+- Built-in best practices enforcement
+- Framework compliance validation
+- Docker support (optional)
+- Comprehensive documentation setup
 
-**NOTE:** This guide and project is aimed at Windows users running a development environment of Visual Code Studio with the powershell terminal. Any part can be adapted to your own development platform with minor alterations to the commands, but the steps should all remain the same.
+## Technical Requirements
+### Prerequisites
+- Python >= 3.11.4
+- Pip >= 24.3.1
+- Git (for submodule management)
 
-## Quick Start
-Make sure to pull down this repository and initialize the submodule, then install the submodule via pip from within the project directory:
+### Dependencies
+All project dependencies are managed through `requirements.txt` and include:
+- mkdocs 1.6.0
+- mkdocs-material 9.5.19
+- mkdocs-material-extensions 1.3.1
+- cookiecutter 2.6.0
+- cookieninja 1.0.0
+
+## Installation
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/yourusername/templates.cookieninja.git
+cd templates.cookieninja
 ```
-cd dw-project-template
-py -m pip install cnsrc/
+
+### 2. Initialize Submodules
+```bash
+git submodule update --init --recursive
 ```
 
-Then customize and create a project with cookieninja!
-```
-cookieninja template/
+### 3. Setup Environment
+Using the automated script:
+```powershell
+./setup.ps1
 ```
 
-You will then be walked through the setup of your project. Once completed, the customized project will be created in your current working directory.
-
-## Template Development
-Developing new updates to the cookiecutter template is a different game than simply using it to create a new project. The following will guide you through how the project is developed, built and published.
-
-### Setup the environment
-To setup the development environment locally, perform the following:
-```
+Or manually:
+```powershell
 py -m venv .venv
-```
-
-Then activate the environment via the activate script. For powershell, use this command:
-```
-./venv/Scripts/Activate.ps1
-```
-
-There are other scripts under the `./venv/Scripts` directory if you prefer an alternative to powershell.
-
-Once your environment is activated, update pip and install dependencies:
-```
+& ".venv/Scripts/Activate.ps1"
 py -m pip install --upgrade pip
 py -m pip install -r requirements.txt
 ```
 
-#### Documentation
-Serve the documentation locally while you update it via:
-```
-py -m mkdocs serve
-```
+## Usage
 
-You can reach the documentation via a web browser at: `http://127.0.0.1:8000/`
-
-The documentation itself is located in the `docs/` directory, and the mkdocs config is `mkdocs.yml`
-
-To build the documentation locally:
+### Creating a New Project
+1. Navigate to your desired parent directory
+2. Run cookieninja:
+```powershell
+py -m cookieninja template/
 ```
-py -m mkdocs build
-```
+3. Follow the interactive prompts to customize your project
+4. Your new project will be generated in the current directory
 
-This builds the documentation and places it in the new folder `site/`
+### Template Options
+During project creation, you'll be prompted to configure various aspects of your project:
+- Project name and slug
+- Docker support
+- Documentation preferences
+- Additional features (based on project type)
+
+## Special Note on Cookieninja
+This template utilizes a custom fork of cookieninja (included as a submodule) instead of standard cookiecutter. This fork provides:
+- Enhanced feature set
+- Additional customization options
+- Various bug fixes and improvements
+
+For detailed information about template options and features, please refer to the [cookieninja documentation](https://cookieninja.readthedocs.io/).
+
+## Development and Contributing
+
+### Local Development
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Run tests
+5. Submit a pull request
+
+### Contributing Guidelines
+Please review our [Contributing Guide](CONTRIBUTING.md) for detailed information about:
+- Code style and standards
+- Pull request process
+- Testing requirements
+- Documentation guidelines
+
+### Code of Conduct
+All contributors are expected to adhere to our [Code of Conduct](CODE_OF_CONDUCT.md).
+
+## Documentation
+For complete documentation, including advanced usage and customization options, please visit the [DeepWork Cookiecutter Project Template Documentation](https://deepworks-net.github.io/templates.cookieninja/).
+
+## Support
+- Issue Tracker: GitHub Issues
+- Documentation: Project Documentation Site
+- Wiki: GitHub Wiki
+
+## Acknowledgments
+- Cookiecutter project team
+- All contributors to this template
+- The DeepWork framework team
