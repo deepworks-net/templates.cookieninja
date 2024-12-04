@@ -1,0 +1,59 @@
+# Repository structure with documentation
+.github:  # GitHub-specific configuration directory
+  workflows:  # Contains GitHub Actions workflow definitions
+    publish.yml  # Workflow for publishing documentation/packages
+    release.yml  # Workflow for handling releases
+  dependabot.yml  # Dependency update configuration
+
+docs:  # Documentation root directory
+  about:  # Contains meta documentation about the project
+    code-of-conduct.md  # Project code of conduct guidelines
+    contributing.md  # Contributing guidelines
+  index.md  # Main documentation landing page
+
+template:  # Main template directory for cookiecutter/cookieninja
+  {{cookiecutter.project_slug}}:  # Template directory using cookiecutter variable
+  hooks:  # Template generation hook scripts
+    post_gen_project.py  # Script run after project generation
+    pre_gen_project.py   # Script run before project generation
+  skel:  # Contains skeleton files for project generation
+    core_files:  # Essential project files
+      .github:  # GitHub configuration for generated projects
+        workflows:  # GitHub Actions workflows for generated projects
+          publish.yml  # Publishing workflow template
+          release.yml  # Release workflow template
+        dependabot.yml  # Dependency updates for generated projects
+      docs:  # Documentation structure for generated projects
+        about:  # Project meta documentation
+          code-of-conduct.md  # Code of conduct template
+          contributing.md  # Contributing guidelines template
+        index.md  # Documentation homepage template
+      .gitattributes  # Git attributes configuration
+      .gitignore  # Git ignore rules
+      .gitmodules  # Git submodules configuration
+      CHANGELOG.md  # Project changelog template
+      CONTRIBUTING.md  # Contributing guidelines
+      LICENSE.md  # Project license
+      mkdocs.yml  # MkDocs configuration
+      README.md  # Project readme
+      requirements.txt  # Python dependencies
+    docker:  # Docker-related configuration files
+      .dockerignore  # Docker ignore rules
+      .env  # Environment variables for Docker
+      build.sh  # Docker build script
+      docker-compose.yml  # Docker Compose configuration
+      Dockerfile  # Docker container definition
+      install-packages.sh  # Package installation script
+      publish.sh  # Docker image publishing script
+    cookiecutter.json  # Template configuration and variables
+
+# Root level project files
+.gitignore  # Version control ignore rules for template project
+CHANGELOG.md  # Template project changelog
+CONTRIBUTING.md  # Template project contributing guidelines
+mkdocs.yml  # Documentation configuration for template project
+README.md  # Template project readme
+requirements.txt  # Template project Python dependencies
+run.ps1  # PowerShell script for running cookieninja
+setup.ps1  # PowerShell script for environment setup
+struct.yml  # This file - documents project structure
